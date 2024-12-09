@@ -196,7 +196,7 @@ GCNet 的核心组件是 **GC Block（Global Context Block）**。它的结构�
 
 论文：[[1505.04597\] U-Net: Convolutional Networks for Biomedical Image Segmentation](https://arxiv.org/abs/1505.04597)
 
-![img](https://i-blog.csdnimg.cn/blog_migrate/e9e66db52f4aaeedfd5e151f993be781.png)
+![](img/Unet.png)
 
 Unet于2015年发表在MICCAI，是针对于生物医学影像提出的用于图像语义分割的全卷积神经网络。Unet为编码器-解码器架构，因整体架构形似"U"而得名。
 
@@ -212,7 +212,7 @@ Unet于2015年发表在MICCAI，是针对于生物医学影像提出的用于图
 
 ## 12、VGGNet
 
-![vgg](C:\Users\admin\Desktop\vgg.png)
+![vgg](img/vgg.png)
 
 VGGNet是2014年由牛津大学[计算机视觉](https://edu.csdn.net/cloud/sd_summit?utm_source=glcblog&spm=1001.2101.3001.7020)组合和Google DeepMind公司研究员一起研发的深度卷积神经网络。它探索了卷积神经网络的深度和其性能之间的关系，通过反复的堆叠3x3的小型卷积核和2x2的最大池化层，成功的构建了16~19层深的卷积神经网络。
 
@@ -232,7 +232,7 @@ ResNet是2015年由微软实验室的何凯明等几位大神提出的深度卷�
 
 因此这篇文章提出显式地构造一个identity mapping，称为deep residual learning framework，来解决深层网络精度变差的问题。这样的好处是：**只是加了一个原先的值进来，没有任何可以学的参数，不会增加任何的模型复杂度，也不会使计算变得更加复杂，而且这个网络跟之前一样，也是可以训练的，没有任何改变。**
 
-![image-20241208210404795](C:\Users\admin\AppData\Roaming\Typora\typora-user-images\image-20241208210404795.png)
+![](img/ResNet1.png)
 
 - 其中右侧弯曲的线应用了shortcut connections短路连接，即跳过一些层，并采用了identity mapping使输入和输出一致。
 - 左侧流程即为残差连接，对残差进行更深网络的学习，最后将两个连接的输出加和并做relu激活，即为最终结果。
@@ -253,9 +253,9 @@ ResNet是2015年由微软实验室的何凯明等几位大神提出的深度卷�
 
 示意图如下：
 
-![image-20241208211131017](C:\Users\admin\AppData\Roaming\Typora\typora-user-images\image-20241208211131017.png)
+![](img/ResNet2.png)
 
-具体的模型参数如下：![](C:\Users\admin\AppData\Roaming\Typora\typora-user-images\image-20241208211149590.png)
+具体的模型参数如下：![](img/ResNet3.png)
 
 ResNet的出现为解决深度网络模型退化的问题贡献了思路，避免了梯度消失和梯度爆炸的问题，提高了模型的性能和精度。其中shortcut连接和残差连接的思路被后人广泛学习。
 
@@ -272,7 +272,7 @@ Inception模块是经典模型GoogLeNet中核心的子网络结构，最早于20
 
 **GoogLeNet中使用的Inception v1结构：**
 
-![I2](C:\Users\admin\Desktop\I2.png)
+![I2](img/Inception2.png)
 
 后续提出的Inception v2、v3、v4对于原结构做了不同程度的改进：
 
@@ -288,11 +288,11 @@ Inception模块是经典模型GoogLeNet中核心的子网络结构，最早于20
 
 2016年Resnet网络的提出为深度网络模型解决梯度爆炸或消失问题贡献了思路，Inception-ResNet（即Inception-v4）就是在Resnet贡献的残差连接的思路上提出，从而改进上一版v3结构。
 
-![QQ_1733589078129](C:\Users\admin\Desktop\I1)
+![](img/Inception1.png)
 
 上图即为架构中的其中一个Inception-ResNet module块。将残差模块的卷积结构替换为Inception结构，即得到Inception Residual结构。除了上述图片中的结构外，作者通过20个类似的模块进行组合，最后形成了InceptionV4的网络结构，构建了Inception-ResNet模型，如下图所示。
 
-![l3](C:\Users\admin\Desktop\l3.png)
+![l3](img/Inception3.png)
 
 给出的代码包含了Inception-ResNet的所有module和论文提出的整体架构搭建方法以供参考。
 
@@ -308,11 +308,11 @@ Inception模块是经典模型GoogLeNet中核心的子网络结构，最早于20
 
 **Xception** 与 **Inception V3** 具有相同数量的参数，但由于模型参数的更有效使用，其性能得到进一步的提高。
 
-![x1](C:\Users\admin\Desktop\x1.png)
+![x1](img/Xception1.png)
 
 如图即为Xception模块结构，将所有 1×1卷积进行拼接，进行通道维度的逐点卷积，并使3×3卷积的数量与1×1卷积输出通道的数量相等，进行空间维度的逐通道卷积。
 
-![x2](C:\Users\admin\Desktop\x2.png)
+![x2](img/Xception2.png)
 
 上图即为Xception的整体架构，Xception包含三个部分：输入部分，中间部分和结尾部分；其中有36个卷积层用于特征提取，36个卷积层放到14个模块中，除了首尾模块，其余的都用线性残差进行连接。
 
@@ -324,7 +324,7 @@ Inception模块是经典模型GoogLeNet中核心的子网络结构，最早于20
 
 论文：[arxiv.org/pdf/1807.11164](https://arxiv.org/pdf/1807.11164)
 
-![image-20241208212623604](C:\Users\admin\AppData\Roaming\Typora\typora-user-images\image-20241208212623604.png)
+![](img/ShuﬄeNet1.png)
 
 在2018年针对不仅仅依靠减少模型复杂度来提高模型速度的思路而提出。
 
@@ -334,7 +334,7 @@ a和b是ShuﬄeNetV1采用的模块结构。在此基础上，V2针对基本单�
 
 **channel shuffle重排过程**：
 
-![sh2](C:\Users\admin\Desktop\sh2.png)
+![sh2](img/ShuﬄeNet2.png)
 
 同时，对于下采样模块，不再有channel split，而是每个分支都有stride=2的下采样，最后concat在一起后，特征图空间大小减半，通道数翻倍。
 
@@ -354,11 +354,11 @@ ShuffeNet v2也可作为与其他技术相结合，进一步提升性能，如�
 
 DenseNet于2017年提出，是对ResNet思路进一步的改造。其采用了密集连接的机制，即相互连接所有的层，每个层都会与前面所有的层在通道的维度上连接在一起（`Channel-wise concatenation`）, 实现特征重用，作为下一层的输入。这样不但减缓了梯度消失的现象，也使其可以在参数和计算量更少的情况下实现比ResNet更优的性能。
 
-![dense](C:\Users\admin\Desktop\dense.png)
+![dense](img/dense1.png)
 
 上图即为DenseBlock的结构示意，内部包含**BN+ ReLU + 3x3 Conv**。
 
-![dense2](C:\Users\admin\Desktop\dense2.png)
+![dense2](img/dense2.png)
 
 如上图所示，DenseNet的架构由DenseBlock和Transition Layer组成。因为DenseNet的稠密连接方式需要从通道维度上concat在一起，所以在每个DenseBlock中，特征映射的大小是相同的，无需改变图像尺寸。
 
@@ -393,13 +393,13 @@ DenseNet中的每一层都接收前面所有的层作为输入，因此能够感
 
 Darknet-53于2018年提出，是YOLO v3 的 backbone。其借鉴了 Resnet 的设计思想，引入了 shoutcut和残差连接的思路。
 
-<img src="C:\Users\admin\Desktop\dark1.png" alt="dark1" style="zoom: 80%;" />
+![dark1](img/dark1.png)
 
 上图即为Darknet53的架构。输入为416*416像素大小的图像，经过一系列卷积操作后，输出为13x13x1024的张量。这个张量可以传递给YOLOv3中的检测头，用于检测图像中的物体。
 
 其中Convolutional层和Residual层的结构如下图所示。
 
-![dark2](C:\Users\admin\Desktop\dark2.png)
+![dark2](img/dark2.png)
 
 ------
 
@@ -411,7 +411,7 @@ Darknet-53于2018年提出，是YOLO v3 的 backbone。其借鉴了 Resnet 的�
 
 Fire Module于2016年提出，用作SqueezeNet的基础模块。
 
-![fire](C:\Users\admin\Desktop\fire.png)
+![fire](img/fire.png)
 
 如上图，使用的基础模块称为fire。包含三个卷积层，步长均为1。分为squeeze和expand两部分，分别压缩和扩展数据的通道数。expand部分中，两个不同核尺寸的结果在concat层在通道维度上合并输出。
 
@@ -441,9 +441,9 @@ Inverted Residual Block倒置残差模块是2018年提出的mobilenetV2中应用
 
 它和残差块Residual block的区别在于：残差块是先1x1卷积降维，经过3x3卷积处理，再通过1x1卷积升维。而倒置残差则是先升维再降维，同时将普通3x3卷积替换成了DWconv深度可分离卷积。
 
-![IR](C:\Users\admin\Desktop\IR.png)
+![IR](img/IR1.png)
 
-![IR2](C:\Users\admin\Desktop\IR2.png)
+![IR2](img/IR2.png)
 
 从这张图中我们可以看到，Inverted residual block的最后一层使用的是线性的激活函数，这是因为ReLU激活函数会对低维度的特征造成较大的损失，而在最后一层连接的又是一个维度较低的特征矩阵，为了减小损失而使用线性的激活函数。
 
